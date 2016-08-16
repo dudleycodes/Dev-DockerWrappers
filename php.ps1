@@ -30,7 +30,15 @@ $sourceDrive = (Get-Item -Path $sourceDir).PSDrive.Root
 
     if(!$?)
     {
-        Write-Host "Docker must be installed and running!"
+        $output = docker 2>&1
+        if (!$?) {
+            Write-Host "Docker must be installed and running!"
+        }
+        else
+        {
+            Write-Host "Docker must be running!"
+        }
+        
         exit;
     }
 
