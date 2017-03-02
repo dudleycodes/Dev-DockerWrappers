@@ -70,7 +70,7 @@ $sourceDrive = (Get-Item -Path $sourceDir).PSDrive.Root
 
     Write-Host "Starting Container: '$containerName'"
     
-    $command = "docker run -d --name $containerName -p $containerPort" + ":80 -v " + '"' + "$sourceDir" + ':' + '/var/www/html/' + '" ' + "php:5.6.23-apache"    
+    $command = "docker run -d --name $containerName -p $containerPort" + ":80 -v " + '"' + "$sourceDir" + ':' + '/var/www/html/' + '" ' + "php:5-apache"    
 
     Invoke-Expression $command | Out-Null
     
